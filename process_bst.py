@@ -29,8 +29,9 @@ def process(imgPath):
         borderT, borderB = 0, height
 
         box_length = height
-        if xmax - xmin < 100 and ymax - ymin < 100:
-            box_length = 200
+        # 裁完背景后剩下的宽度小于预设的高度
+        if borderR - borderL < box_length:
+            box_length = borderR - borderL
             
         xmid, ymid = int((xmin + xmax) / 2), int((ymin + ymax) / 2)
 
